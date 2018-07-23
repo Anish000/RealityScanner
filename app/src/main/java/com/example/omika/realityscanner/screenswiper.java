@@ -5,7 +5,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 
-//This is an adapter which allows us to swipe between the fragments.
+//This adapter allows us to swipe between the fragments.
 public class screenswiper extends FragmentPagerAdapter {
     private static final int screens=3;
     public screenswiper(FragmentManager fm) {
