@@ -2,10 +2,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.omika.realityscanner.MainScreen">
+    tools:context="com.example.omika.realityscanner.MainScreen"
+    >
 
 
-    <TextureView
+    <com.example.omika.realityscanner.AutoFitTextureView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/textureview"/>
