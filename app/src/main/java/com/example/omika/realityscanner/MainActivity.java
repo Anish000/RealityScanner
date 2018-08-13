@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
      //This will allow to swipe along the screens.
      swiper=new screenswiper(getSupportFragmentManager());
 

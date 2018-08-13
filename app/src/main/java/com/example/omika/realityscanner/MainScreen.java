@@ -33,6 +33,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -109,6 +110,7 @@ public class MainScreen extends Fragment {
 
 
 
+    private FloatingActionButton captureButton;
 
 
 
@@ -124,9 +126,11 @@ public class MainScreen extends Fragment {
         View rootview= inflater.inflate(R.layout.fragment_main_screen, container, false);
 
 
+        captureButton=rootview.findViewById(R.id.captureButton);
+
         textureView=rootview.findViewById(R.id.textureview);
 
-        textureView.setOnClickListener(new View.OnClickListener() {
+        captureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takePicture();

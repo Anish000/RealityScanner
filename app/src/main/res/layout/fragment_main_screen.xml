@@ -2,13 +2,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.omika.realityscanner.MainScreen"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.omika.realityscanner.MainScreen">
 
 
     <TextureView
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/textureview"/>
 
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/roundborder"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:padding="3dp">
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:fabSize="normal"
+        android:backgroundTint="@color/white"
+        app:borderWidth="0dp"
+        android:id="@+id/captureButton"
+       />
+    </LinearLayout>
 </RelativeLayout>
