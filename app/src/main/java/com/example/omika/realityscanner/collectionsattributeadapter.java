@@ -1,6 +1,11 @@
 package com.example.omika.realityscanner;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,16 +16,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.util.ArrayList;
-import de.hdodenhof.circleimageview.CircleImageView;
+import java.util.concurrent.ExecutionException;
+
 
 import static android.media.CamcorderProfile.get;
 
 public class collectionsattributeadapter extends RecyclerView.Adapter<collectionsattributeadapter.ViewHolder> {
     private static final String TAG = "StaggeredRecyclerViewAd";
 
-    private ArrayList<String> mImageUrls = new ArrayList<>();
+    private ArrayList<String> mImageUrls;
     private Context mContext;
 
     public collectionsattributeadapter(Context context, ArrayList<String> imageUrls) {
@@ -28,23 +36,28 @@ public class collectionsattributeadapter extends RecyclerView.Adapter<collection
         mContext = context;
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.collectionscreenholder, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
-        Log.d(TAG, "onBindViewHolder: called.");
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+
 
         RequestOptions requestOptions = new RequestOptions()
                 .placeholder(R.drawable.ic_launcher_background);
 
-        Glide.with(mContext)
-                .load(mImageUrls.get(position))
-                .apply(requestOptions)
-                .into(holder.image);
+
+
+              Glide.with(mContext).asBitmap()
+                      .load(mImageUrls.get(position))
+                      .apply(requestOptions).into(holder.image);
+
+
+
 
 
         holder.image.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +80,7 @@ public class collectionsattributeadapter extends RecyclerView.Adapter<collection
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.image = itemView.findViewById(R.id.imageviewp);
+            image = itemView.findViewById(R.id.imageviewp);
 
         }
     }
