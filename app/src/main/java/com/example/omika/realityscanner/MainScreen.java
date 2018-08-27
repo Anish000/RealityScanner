@@ -319,6 +319,8 @@ public class MainScreen extends Fragment {
                 @Override
                 public void onCaptureCompleted(@NonNull CameraCaptureSession session, @NonNull CaptureRequest request, @NonNull TotalCaptureResult result) {
                     super.onCaptureCompleted(session, request, result);
+
+                    shutterSound();
                     Toast.makeText(context, "Saved "+file, Toast.LENGTH_SHORT).show();
                     createCameraPreview();
                     context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
