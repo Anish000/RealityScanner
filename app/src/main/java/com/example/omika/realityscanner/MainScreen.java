@@ -27,6 +27,7 @@ import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
 import android.media.Image;
 import android.media.ImageReader;
+import android.media.MediaActionSound;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -134,6 +135,9 @@ public class MainScreen extends Fragment {
             @Override
             public void onClick(View v) {
                 takePicture();
+
+
+
             }
         });
 
@@ -451,6 +455,12 @@ public class MainScreen extends Fragment {
         super.onPause();
 
         stopBackgroundThread();
+    }
+
+
+    private void shutterSound(){
+        MediaActionSound shuttersound=new MediaActionSound();
+        shuttersound.play(MediaActionSound.SHUTTER_CLICK);
     }
 
 
